@@ -13,7 +13,7 @@
         id: "mapbox-streets-v8",
         accessToken: "pk.eyJ1IjoiYW5pZW1pZWMiLCJhIjoiY2txdThqd2lhMDIzajJwcGFzbndndDQwciJ9.Z077oo1U8_51TiBVmpp1gw"
     }).addTo(myMap);
-    // L.tileLayer("https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/1/0/0.mvt?access_token=pk.eyJ1IjoiYW5pZW1pZWMiLCJhIjoiY2txdThqd2lhMDIzajJwcGFzbndndDQwciJ9.Z077oo1U8_51TiBVmpp1gw!").addTo(myMap)
+    // L.tileLayer("https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/1/0/0.mvt?access_token=pk.eyJ1IjoiYW5pZW1pZWMiLCJhIjoiY2txdThqd2lhMDIzajJwcGFzbndndDQwciJ9.Z077oo1U8_51TiBVmpp1gw").addTo(myMap)
 
     // Store API query variables
     var baseURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson";
@@ -80,15 +80,15 @@
           "<div class=\"max\">" + grades[grades.length - 1] + "</div>" +
         "</div>";
   
-      div.innerHTML = legendInfo;
-  
-      limits.forEach(function(limit, index) {
+      div.innerHTML = legendInfo;  
+      grades.forEach(function(limit, index) {
         labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
       });
   
       div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-      return div;
-        
+      return div;        
     }
+    // Adding legend to the map
+    legend.addTo(myMap);
   });
   
