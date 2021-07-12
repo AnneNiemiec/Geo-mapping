@@ -20,16 +20,36 @@ var myMap = L.map("mapid", {
     // Grab the data with d3
     d3.json(baseURL, function(earthquakes) {
     console.log(earthquakes)
-    function createFeatures(earthquakesData){
-        return {fillColor: getColor(earthquakesData.geometry.coordinates[2]),
-            radius: getRadius(earthquakesData.properties.mag)}
-        
-        }
+
     // .features.geometry
+    function createFeatures(earthquakesData){
+        return {fillColor: earthquakeColor(earthquakesData.geometry.coordinates[2]),
+            radius: earthquakeRadius(earthquakesData.properties.mag)}
+        }
+    // .features.magnitude
+    function earthquakeColor(earthquakesData){
+        if(earthquakesData < 10){
+            return "#FF7F50"            
+        }
+        else if(earthquakesData < 30){
+            return "#6495ED"            
+        }
+        else if(earthquakesData < 50){
+            return "#008B8B"            
+        }
+        else if(earthquakesData < 70){
+            return "#DEB887"            
+        }
+        else if(earthquakesData < 90){
+            return "#BDB76B"            
+        }
+        else {
+            return "#FFE4C4"            
+        }
+    }
+    
+     // Create a new marker cluster group
 
-
-
-    // Create a new marker cluster group
     // var markers = L.markerClusterGroup();
   
     // // Loop through data
