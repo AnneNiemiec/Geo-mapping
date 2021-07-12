@@ -47,7 +47,10 @@ var myMap = L.map("mapid", {
             return "#FFE4C4"            
         }
     }
-    
+        // earthquakeRadius
+    function earthquakeRadius(earthquakesData){
+        return earthquakesData *2        
+    }
      // Create a new marker cluster group
 
     // var markers = L.markerClusterGroup();
