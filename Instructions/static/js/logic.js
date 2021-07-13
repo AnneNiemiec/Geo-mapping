@@ -1,5 +1,5 @@
     // Creating map object
-    var myMap = L.map("mapid", {
+    var myMap = L.map("map", {
         center: [40.7, -73.95],
         zoom: 11
     });
@@ -10,11 +10,10 @@
         tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
-        id: "mapbox-streets-v8",
-        accessToken: "pk.eyJ1IjoiYW5pZW1pZWMiLCJhIjoiY2txdThqd2lhMDIzajJwcGFzbndndDQwciJ9.Z077oo1U8_51TiBVmpp1gw"
+        id: "mapbox/streets-v11",
+        accessToken: API_KEY
     }).addTo(myMap);
-    // L.tileLayer("https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/1/0/0.mvt?access_token=pk.eyJ1IjoiYW5pZW1pZWMiLCJhIjoiY2txdThqd2lhMDIzajJwcGFzbndndDQwciJ9.Z077oo1U8_51TiBVmpp1gw").addTo(myMap)
-
+    
     // Store API query variables
     var baseURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson";
     
