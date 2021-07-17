@@ -83,11 +83,14 @@
           "<div class=\"max\">" + grades[grades.length - 1] + "</div>" +
         "</div>";
   
-      grades.forEach(function(limit, index) {
-        div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
+    //   grades.forEach(function(limit, index) {
+    //     div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
 
-      });
-  
+    //   });
+        for (let index = 0; index < grades.length; index++) {
+            div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
+            
+        }
     //   div.innerHTML += "<ul>" + labels.join("") + "</ul>";
       return div;        
     }
