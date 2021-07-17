@@ -1,8 +1,8 @@
-    console.log('test');
+    console.log('');
     // Creating map object
     var myMap = L.map("map", {
         center: [40.7, -73.95],
-        zoom: 11
+        zoom: 3
     });
     
     // Adding tile layer to the map
@@ -76,20 +76,19 @@
         var div = L.DomUtil.create("div", "info legend");
         var grades = [-10,10,30,50,70,90];
         var colors = ["#FF7F50","#6495ED","#008B8B", "#DEB887", "#BDB76B", "#FFE4C4"];
-        var labels = []
-
+       
         var legendInfo = 
         "<div class=\"labels\">" +
           "<div class=\"min\">" + grades[0] + "</div>" +
           "<div class=\"max\">" + grades[grades.length - 1] + "</div>" +
         "</div>";
   
-      div.innerHTML = legendInfo;  
       grades.forEach(function(limit, index) {
-        labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
+        div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
+
       });
   
-      div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    //   div.innerHTML += "<ul>" + labels.join("") + "</ul>";
       return div;        
     }
     // Adding legend to the map
