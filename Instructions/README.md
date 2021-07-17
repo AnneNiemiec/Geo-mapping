@@ -1,13 +1,5 @@
 # Leaflet Homework - Visualizing Data with Leaflet
 
-# Anne Niemiec Assignment
-# Worked closely with tutor on this assignment
-# Assignment was short and required fewer commits
-# Repository:  Leaflet-Challenge
-# Folder Name:  Leaflet-Step-1
-# Javascript:  logic.js
-# HTML: index.html
-
 ## Background
 
 ![1-Logo](Images/1-Logo.png)
