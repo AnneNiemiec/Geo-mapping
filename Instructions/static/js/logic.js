@@ -1,3 +1,4 @@
+    console.log('test');
     // Creating map object
     var myMap = L.map("map", {
         center: [40.7, -73.95],
@@ -24,7 +25,12 @@
     // features.geometry (style)
     function createFeatures(earthquakesData){
         return {fillColor: earthquakeColor(earthquakesData.geometry.coordinates[2]),
-            radius: earthquakeRadius(earthquakesData.properties.mag)}
+            radius: earthquakeRadius(earthquakesData.properties.mag),
+            opacity: 1,
+            fillOpacity: 1,
+            color: "#000000"
+        }
+            
         }
     // features.magnitude
     function earthquakeColor(earthquakesData){
@@ -49,21 +55,20 @@
     }
     // earthquakeRadius
     function earthquakeRadius(earthquakesData){
-        return earthquakesData *2        
+        return earthquakesData *3        
     }
     // geojson
-    geojsonLayer = L.geoJson(earthquakes, {
+    L.geoJson(earthquakes, {
         style: createFeatures,
         pointToLayer: function(feature, latlng) {
-            return new L.CircleMarker(latlng
-            );
+            return L.circleMarker(latlng)
         },
         onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.mag);
+            layer.bindPopup("magnitude " + feature.properties.mag);
         }
-    });
+    }).addTo(myMap);
     
-    myMap.addLayer(geojsonLayer);
+    // myMap.addLayer(geojsonLayer);
 
     // Set up the legend
     var legend = L.control({ position: "bottomright" });
