@@ -33,25 +33,13 @@
             
         }
     // features.magnitude
-    function earthquakeColor(earthquakesData){
-        if(earthquakesData < 10){
-            return "#FF7F50"            
-        }
-        else if(earthquakesData < 30){
-            return "#6495ED"            
-        }
-        else if(earthquakesData < 50){
-            return "#008B8B"            
-        }
-        else if(earthquakesData < 70){
-            return "#DEB887"            
-        }
-        else if(earthquakesData < 90){
-            return "#BDB76B"            
-        }
-        else {
-            return "#FFE4C4"            
-        }
+    function earthquakeColor(d) {
+        return d > 90 ? '#800026' :
+               d > 70  ? '#BD0026' :
+               d > 50  ? '#E31A1C' :
+               d > 30  ? '#FC4E2A' :
+               d > 10   ? '#FD8D3C' :
+                         '#FEB24C';
     }
     // earthquakeRadius
     function earthquakeRadius(earthquakesData){
@@ -71,30 +59,24 @@
     // myMap.addLayer(geojsonLayer);
 
     // Set up the legend
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function() {
-        var div = L.DomUtil.create("div", "info legend");
-        var grades = [-10,10,30,50,70,90];
-        var colors = ["#FF7F50","#6495ED","#008B8B", "#DEB887", "#BDB76B", "#FFE4C4"];
-       
-        var legendInfo = 
-        "<div class=\"labels\">" +
-          "<div class=\"min\">" + grades[0] + "</div>" +
-          "<div class=\"max\">" + grades[grades.length - 1] + "</div>" +
-        "</div>";
-  
-    //   grades.forEach(function(limit, index) {
-    //     div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
+    var legend = L.control({position: 'bottomright'});
 
-    //   });
-        for (let index = 0; index < grades.length; index++) {
-            div.innerHTML +="<li style='background-color: " + colors[index] + "'></li>"+ grades[index];
-            
+    legend.onAdd = function () {
+    
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [-10, 10, 30, 50, 70, 90]
+               
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + earthquakeColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
         }
-    //   div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-      return div;        
-    }
-    // Adding legend to the map
+    
+        return div;
+    };
+     // Adding legend to the map
     legend.addTo(myMap);
+
   });
   
