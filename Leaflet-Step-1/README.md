@@ -5,7 +5,7 @@
 # Assignment was short and required fewer commits
 # Repository:  Leaflet-Challenge
 # Folder Name:  Leaflet-Step-1
-# Javascript:  logic.js
+# Javascript:  logic.js; referenced https://leafletjs.com/examples/choropleth/ for code
 # HTML: index.html
 
 ## Background

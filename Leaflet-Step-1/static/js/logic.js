@@ -33,6 +33,7 @@
             
         }
     // features.magnitude
+    /// https://leafletjs.com/examples/choropleth/ as a reference for plotting circles and legend
     function earthquakeColor(d) {
         return d > 90 ? '#800026' :
                d > 70  ? '#BD0026' :
